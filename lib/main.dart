@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app/src/utils/colors_utils.dart';
 import 'package:movies_app/src/view/pages/movies_page.dart';
 
 void main() {
@@ -14,7 +13,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Dice App',
       theme: ThemeData(
-        primarySwatch: ColorsUtils.whiteSwatch,
+        useMaterial3: true,
+        colorSchemeSeed: Colors.white,
+        brightness: Brightness.dark,
+        fontFamily: 'Poppins',
       ),
       home: const MoviesPage(),
     );

@@ -25,7 +25,7 @@ class MovieModel {
     return MovieModel(
       backdropPath: map['backdrop_path'] ?? '',
       originalLanguage: map['original_language'] ?? '',
-      title: map['original_title'] ?? '',
+      title: map['title'] ?? '',
       overview: map['overview'] ?? '',
       poster: map['poster_path'] ?? '',
       releaseDate: map['release_date'] ?? '',
