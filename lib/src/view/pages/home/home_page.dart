@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/src/controller/movies_controller.dart';
 import 'package:movies_app/src/model/movie_model.dart';
-import 'package:movies_app/src/view/widgets/movie_carousel_widget.dart';
-import 'package:movies_app/src/view/widgets/movie_item_widget.dart';
-import 'package:movies_app/src/view/widgets/title_row_widget.dart';
+import 'package:movies_app/src/view/pages/home/widgets/movie_carousel_widget.dart';
+import 'package:movies_app/src/view/pages/home/widgets/movie_item_widget.dart';
+import 'package:movies_app/src/view/pages/home/widgets/title_row_widget.dart';
 
-class MoviesPage extends StatefulWidget {
-  const MoviesPage({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
   @override
-  State<MoviesPage> createState() => _MoviesPageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _MoviesPageState extends State<MoviesPage> {
+class _HomePageState extends State<HomePage> {
   late Future<List<MovieModel>> popularMoviesList;
   late Future<List<MovieModel>> upComingMoviesList;
   late Future<List<MovieModel>> topRatedMoviesList;

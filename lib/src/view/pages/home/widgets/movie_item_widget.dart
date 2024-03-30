@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/src/model/movie_model.dart';
 import 'package:movies_app/src/utils/image_utils.dart';
+import 'package:movies_app/src/view/pages/details/details_page.dart';
+import 'package:movies_app/src/view/widgets/dark_gradient_widget.dart';
 import 'package:movies_app/src/view/widgets/movie_detail_widget.dart';
 
 class MovieItemWidget extends StatelessWidget {
@@ -16,7 +18,12 @@ class MovieItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        //TODO: Natigate to movie details
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => DetailsPage(movie: movie),
+          ),
+        );
       },
       child: Stack(
         alignment: Alignment.center,
@@ -29,18 +36,7 @@ class MovieItemWidget extends StatelessWidget {
             ),
           ),
           if (showDetails) ...[
-            Container(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [
-                    Theme.of(context).primaryColorDark.withOpacity(0),
-                    Theme.of(context).primaryColorDark.withOpacity(1),
-                  ],
-                ),
-              ),
-            ),
+            const DarkGradientWidget(),
             SizedBox(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10),

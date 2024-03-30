@@ -38,7 +38,7 @@ class TitleRowBuild extends StatelessWidget {
                   ),
                   SizedBox(width: 5),
                   Icon(
-                    Icons.arrow_forward_ios_rounded,
+                    Icons.arrow_forward,
                     size: 15,
                   )
                 ],

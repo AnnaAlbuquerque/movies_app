@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app/src/view/pages/movies_page.dart';
+import 'package:flutter/services.dart';
+import 'package:movies_app/src/view/pages/home/home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,6 +11,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+    ]);
     return MaterialApp(
       title: 'Dice App',
       theme: ThemeData(
@@ -18,7 +22,7 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.dark,
         fontFamily: 'Poppins',
       ),
-      home: const MoviesPage(),
+      home: const HomePage(),
     );
   }
 }
