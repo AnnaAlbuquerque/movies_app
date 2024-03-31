@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/src/controller/movies_controller.dart';
 import 'package:movies_app/src/model/movie_model.dart';
+import 'package:movies_app/src/utils/set_up.dart';
 import 'package:movies_app/src/view/pages/home/widgets/movie_carousel_widget.dart';
 import 'package:movies_app/src/view/pages/home/widgets/title_row_widget.dart';
 import 'package:movies_app/src/view/pages/search/search_page.dart';
+import 'package:movies_app/src/view/widgets/error_widget.dart';
 import 'package:movies_app/src/view/widgets/loading_poster_widget.dart';
 import 'package:movies_app/src/view/widgets/movie_item_widget.dart';
 
@@ -22,9 +24,9 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    popularMoviesList = MoviesController().getPopularMovies();
-    upComingMoviesList = MoviesController().getUpComingMovies();
-    topRatedMoviesList = MoviesController().getTopRatedMovies();
+    popularMoviesList = getIt<MoviesController>().getPopularMovies();
+    upComingMoviesList = getIt<MoviesController>().getUpComingMovies();
+    topRatedMoviesList = getIt<MoviesController>().getTopRatedMovies();
   }
 
   @override
@@ -68,8 +70,13 @@ class _HomePageState extends State<HomePage> {
                   future: popularMoviesList,
                   builder: (context, snapshot) {
                     if (snapshot.hasError) {
-                      //TODO: Add error
-                      return Container();
+                      return MovieErrorWidget(
+                        onPressed: () {
+                          setState(() {
+                            popularMoviesList = getIt<MoviesController>().getPopularMovies();
+                          });
+                        },
+                      );
                     } else if (snapshot.hasData) {
                       final data = snapshot.data!;
                       return Column(
@@ -113,8 +120,13 @@ class _HomePageState extends State<HomePage> {
                   future: upComingMoviesList,
                   builder: (context, snapshot) {
                     if (snapshot.hasError) {
-                      //TODO: Add error
-                      return Container();
+                      return MovieErrorWidget(
+                        onPressed: () {
+                          setState(() {
+                            upComingMoviesList = getIt<MoviesController>().getUpComingMovies();
+                          });
+                        },
+                      );
                     } else if (snapshot.hasData) {
                       final data = snapshot.data!;
                       return Column(
@@ -148,8 +160,13 @@ class _HomePageState extends State<HomePage> {
                   future: topRatedMoviesList,
                   builder: (context, snapshot) {
                     if (snapshot.hasError) {
-                      //TODO: Add error
-                      return Container();
+                      return MovieErrorWidget(
+                        onPressed: () {
+                          setState(() {
+                            topRatedMoviesList = getIt<MoviesController>().getTopRatedMovies();
+                          });
+                        },
+                      );
                     } else if (snapshot.hasData) {
                       final data = snapshot.data!;
                       return Column(

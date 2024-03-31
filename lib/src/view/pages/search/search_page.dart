@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:movies_app/src/controller/movies_controller.dart';
 import 'package:movies_app/src/model/movie_model.dart';
+import 'package:movies_app/src/utils/set_up.dart';
 import 'package:movies_app/src/view/widgets/movie_item_widget.dart';
 
 class SearchPage extends StatefulWidget {
@@ -30,7 +31,7 @@ class _SearchPageState extends State<SearchPage> {
   }
 
   void _searchMovie(String name) async {
-    final searchedList = await MoviesController().getMovieByName(name);
+    final searchedList = await getIt<MoviesController>().getMovieByName(name);
     _movieList.clear();
     setState(() {
       _movieList.addAll(searchedList);
@@ -82,6 +83,7 @@ class _SearchPageState extends State<SearchPage> {
                   onChanged: _onTextFieldChange,
                 ),
               ),
+              const SizedBox(height: 10),
               _movieList.isEmpty
                   ? Expanded(
                       child: Column(

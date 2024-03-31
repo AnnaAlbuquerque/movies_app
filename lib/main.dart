@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:movies_app/src/utils/set_up.dart';
 import 'package:movies_app/src/view/pages/home/home_page.dart';
 
 void main() {
+  setupGetIt();
   runApp(const MyApp());
 }
 

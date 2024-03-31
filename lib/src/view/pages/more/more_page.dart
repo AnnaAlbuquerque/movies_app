@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:movies_app/src/controller/movies_controller.dart';
 import 'package:movies_app/src/model/movie_model.dart';
 import 'package:movies_app/src/utils/movie_list_type.dart';
+import 'package:movies_app/src/utils/set_up.dart';
 import 'package:movies_app/src/view/widgets/loading_poster_widget.dart';
 import 'package:movies_app/src/view/widgets/movie_item_widget.dart';
 
@@ -67,10 +68,10 @@ class _MorePageState extends State<MorePage> {
     late List<MovieModel> newList;
     switch (widget.movieListType) {
       case MovieListType.upComing:
-        newList = await MoviesController().getUpComingMovies(page: page);
+        newList = await getIt<MoviesController>().getUpComingMovies(page: page);
         break;
       case MovieListType.topRated:
-        newList = await MoviesController().getTopRatedMovies(page: page);
+        newList = await getIt<MoviesController>().getTopRatedMovies(page: page);
         break;
       default:
         () {};
