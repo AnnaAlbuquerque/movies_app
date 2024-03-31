@@ -26,21 +26,33 @@ class MoviesController {
     return decodeMovieList(response);
   }
 
-  Future<List<MovieModel>> getTopRatedMovies() async {
+  Future<List<MovieModel>> getTopRatedMovies({int? page}) async {
+    Map<String, dynamic> params = RequestUtils.getBaseParams();
+    params.addAll(
+      {
+        'page': page?.toString() ?? '1',
+      },
+    );
     final response = await http.get(
       Uri.parse(
         RequestUtils.getFullURL('/movie/top_rated'),
-      ),
+      ).replace(queryParameters: params),
     );
 
     return decodeMovieList(response);
   }
 
-  Future<List<MovieModel>> getUpComingMovies() async {
+  Future<List<MovieModel>> getUpComingMovies({int? page}) async {
+    Map<String, dynamic> params = RequestUtils.getBaseParams();
+    params.addAll(
+      {
+        'page': page?.toString() ?? '1',
+      },
+    );
     final response = await http.get(
       Uri.parse(
         RequestUtils.getFullURL('/movie/upcoming'),
-      ),
+      ).replace(queryParameters: params),
     );
 
     return decodeMovieList(response);

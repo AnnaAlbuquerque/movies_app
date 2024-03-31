@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:movies_app/src/model/movie_model.dart';
+import 'package:movies_app/src/utils/movie_list_type.dart';
+import 'package:movies_app/src/view/pages/more/more_page.dart';
 
 class TitleRowBuild extends StatelessWidget {
   final bool showMoreButton;
   final String title;
-  final VoidCallback? onPressed;
+  final List<MovieModel> movieList;
+
   const TitleRowBuild({
     required this.title,
+    required this.movieList,
     this.showMoreButton = true,
-    this.onPressed,
     super.key,
   });
 
@@ -29,7 +33,18 @@ class TitleRowBuild extends StatelessWidget {
             const Spacer(),
             TextButton(
               style: TextButton.styleFrom(foregroundColor: Theme.of(context).primaryColorLight),
-              onPressed: onPressed,
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => MorePage(
+                      title: title,
+                      moviesList: movieList,
+                      movieListType: title.parseMovieListType(),
+                    ),
+                  ),
+                );
+              },
               child: const Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [

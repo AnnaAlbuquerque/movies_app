@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:movies_app/src/controller/movies_controller.dart';
 import 'package:movies_app/src/model/movie_model.dart';
 import 'package:movies_app/src/view/pages/home/widgets/movie_carousel_widget.dart';
-import 'package:movies_app/src/view/pages/home/widgets/movie_item_widget.dart';
 import 'package:movies_app/src/view/pages/home/widgets/title_row_widget.dart';
+import 'package:movies_app/src/view/widgets/movie_item_widget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -36,10 +36,6 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const TitleRowBuild(
-                  title: "Popular",
-                  showMoreButton: false,
-                ),
                 FutureBuilder<List<MovieModel>>(
                   future: popularMoviesList,
                   builder: (context, snapshot) {
@@ -48,17 +44,26 @@ class _HomePageState extends State<HomePage> {
                       return Container();
                     } else if (snapshot.hasData) {
                       final data = snapshot.data!;
-                      return MovieCarouselWidget(
-                        itemCount: data.length,
-                        autoPlay: true,
-                        enlargeCenterPage: true,
-                        mainCarousel: true,
-                        itemBuilder: (context, itemIndex, pageViewIndex) {
-                          return MovieItemWidget(
-                            movie: data[itemIndex],
-                            showDetails: true,
-                          );
-                        },
+                      return Column(
+                        children: [
+                          TitleRowBuild(
+                            title: "Popular",
+                            showMoreButton: false,
+                            movieList: data,
+                          ),
+                          MovieCarouselWidget(
+                            itemCount: data.length,
+                            autoPlay: true,
+                            enlargeCenterPage: true,
+                            mainCarousel: true,
+                            itemBuilder: (context, itemIndex, pageViewIndex) {
+                              return MovieItemWidget(
+                                movie: data[itemIndex],
+                                showDetails: true,
+                              );
+                            },
+                          ),
+                        ],
                       );
                     } else {
                       //TODO: Add better loading
@@ -67,9 +72,6 @@ class _HomePageState extends State<HomePage> {
                   },
                 ),
                 const SizedBox(height: 50),
-                const TitleRowBuild(
-                  title: "Up coming",
-                ),
                 FutureBuilder<List<MovieModel>>(
                   future: upComingMoviesList,
                   builder: (context, snapshot) {
@@ -78,13 +80,21 @@ class _HomePageState extends State<HomePage> {
                       return Container();
                     } else if (snapshot.hasData) {
                       final data = snapshot.data!;
-                      return MovieCarouselWidget(
-                        itemCount: data.length,
-                        itemBuilder: (context, itemIndex, pageViewIndex) {
-                          return MovieItemWidget(
-                            movie: data[itemIndex],
-                          );
-                        },
+                      return Column(
+                        children: [
+                          TitleRowBuild(
+                            title: "Up coming",
+                            movieList: data,
+                          ),
+                          MovieCarouselWidget(
+                            itemCount: data.length,
+                            itemBuilder: (context, itemIndex, pageViewIndex) {
+                              return MovieItemWidget(
+                                movie: data[itemIndex],
+                              );
+                            },
+                          ),
+                        ],
                       );
                     } else {
                       //TODO: Add better loading
@@ -93,9 +103,6 @@ class _HomePageState extends State<HomePage> {
                   },
                 ),
                 const SizedBox(height: 50),
-                const TitleRowBuild(
-                  title: "Top Rated",
-                ),
                 FutureBuilder<List<MovieModel>>(
                   future: topRatedMoviesList,
                   builder: (context, snapshot) {
@@ -104,13 +111,21 @@ class _HomePageState extends State<HomePage> {
                       return Container();
                     } else if (snapshot.hasData) {
                       final data = snapshot.data!;
-                      return MovieCarouselWidget(
-                        itemCount: data.length,
-                        itemBuilder: (context, itemIndex, pageViewIndex) {
-                          return MovieItemWidget(
-                            movie: data[itemIndex],
-                          );
-                        },
+                      return Column(
+                        children: [
+                          TitleRowBuild(
+                            title: "Top Rated",
+                            movieList: data,
+                          ),
+                          MovieCarouselWidget(
+                            itemCount: data.length,
+                            itemBuilder: (context, itemIndex, pageViewIndex) {
+                              return MovieItemWidget(
+                                movie: data[itemIndex],
+                              );
+                            },
+                          ),
+                        ],
                       );
                     } else {
                       //TODO: Add better loading
