@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:movies_app/src/controller/movies_controller.dart';
 import 'package:movies_app/src/model/movie_model.dart';
 import 'package:movies_app/src/utils/movie_list_type.dart';
+import 'package:movies_app/src/view/widgets/loading_poster_widget.dart';
 import 'package:movies_app/src/view/widgets/movie_item_widget.dart';
 
 class MorePage extends StatefulWidget {
@@ -49,14 +50,16 @@ class _MorePageState extends State<MorePage> {
   }
 
   void getMoreMovies() {
-    page++;
     if (!isLoadingPage) {
+      page++;
       setState(() {
         isLoadingPage = true;
         requestNextPage();
       });
     } else {
-      isLoadingPage = false;
+      setState(() {
+        isLoadingPage = false;
+      });
     }
   }
 
@@ -76,6 +79,7 @@ class _MorePageState extends State<MorePage> {
     setState(() {
       fullList.addAll(newList);
       fullListLength = fullList.length;
+      isLoadingPage = false;
     });
   }
 
@@ -103,7 +107,7 @@ class _MorePageState extends State<MorePage> {
         ),
         itemBuilder: (context, index) {
           if (index >= fullList.length) {
-            return const CircularProgressIndicator();
+            return const LoadingPosterWidget();
           }
           return MovieItemWidget(
             movie: fullList[index],
