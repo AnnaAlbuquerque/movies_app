@@ -9,7 +9,7 @@ class MovieModel {
   final double voteCount;
   final double popularity;
 
-  MovieModel({
+  const MovieModel({
     required this.backdropPath,
     required this.originalLanguage,
     required this.title,
@@ -38,5 +38,34 @@ class MovieModel {
   @override
   String toString() {
     return 'MovieModel(backdropPath: $backdropPath, originalLanguage: $originalLanguage, title: $title, overview: $overview, poster: $poster, releaseDate: $releaseDate, voteAverage: $voteAverage, voteCount: $voteCount, popularity: $popularity)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+
+    return other is MovieModel &&
+        other.backdropPath == backdropPath &&
+        other.originalLanguage == originalLanguage &&
+        other.title == title &&
+        other.overview == overview &&
+        other.poster == poster &&
+        other.releaseDate == releaseDate &&
+        other.voteAverage == voteAverage &&
+        other.voteCount == voteCount &&
+        other.popularity == popularity;
+  }
+
+  @override
+  int get hashCode {
+    return backdropPath.hashCode ^
+        originalLanguage.hashCode ^
+        title.hashCode ^
+        overview.hashCode ^
+        poster.hashCode ^
+        releaseDate.hashCode ^
+        voteAverage.hashCode ^
+        voteCount.hashCode ^
+        popularity.hashCode;
   }
 }

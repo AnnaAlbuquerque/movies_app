@@ -16,4 +16,14 @@ class GenreModel {
 
   @override
   String toString() => 'GenreModel(id: $id, genreName: $genreName)';
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+
+    return other is GenreModel && other.id == id && other.genreName == genreName;
+  }
+
+  @override
+  int get hashCode => id.hashCode ^ genreName.hashCode;
 }

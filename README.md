@@ -1,6 +1,10 @@
-# movies_app
+# Movies App 
 
-A new Flutter project.
+Aplicativo com listagem de filmes utilizando a API [TMDB](https://developer.themoviedb.org/docs/image-basics).
+
+contempla:
+
+
 
 ## Getting Started
 

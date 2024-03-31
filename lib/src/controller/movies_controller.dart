@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:movies_app/src/model/genre_model.dart';
 import 'package:movies_app/src/model/movie_model.dart';
-import 'package:movies_app/src/services/http_client.dart';
+import 'package:movies_app/src/services/movie_http_client.dart';
 import 'package:movies_app/src/utils/request_utils.dart';
 
 class MoviesController {
