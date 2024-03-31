@@ -28,11 +28,37 @@ class MovieItemWidget extends StatelessWidget {
       child: Stack(
         alignment: Alignment.center,
         children: [
-          SizedBox(
+          ClipRRect(
+            borderRadius: BorderRadius.circular(3),
             child: Image.network(
               '${ImageUtils.baseURLImage}${movie.poster}',
               filterQuality: FilterQuality.high,
               fit: BoxFit.cover,
+              errorBuilder: (context, error, stackTrace) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 5),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).primaryColorLight.withOpacity(0.5),
+                      borderRadius: BorderRadius.circular(3),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Icon(Icons.image),
+                        const SizedBox(height: 10),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 4),
+                          child: Text(
+                            movie.title,
+                            maxLines: 5,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              },
             ),
           ),
           if (showDetails) ...[

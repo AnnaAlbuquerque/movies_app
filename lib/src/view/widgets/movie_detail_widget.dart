@@ -14,8 +14,9 @@ class MovieDetailWidget extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(3),
       decoration: BoxDecoration(
-          color: Theme.of(context).primaryColorLight.withOpacity(0.3),
-          borderRadius: BorderRadius.circular(5)),
+        color: Theme.of(context).primaryColorLight.withOpacity(0.3),
+        borderRadius: BorderRadius.circular(5),
+      ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [

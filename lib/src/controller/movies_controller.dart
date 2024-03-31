@@ -17,6 +17,8 @@ class MoviesController {
   }
 
   Future<List<MovieModel>> getPopularMovies() async {
+    //TODO: remove delay
+    await Future.delayed(const Duration(minutes: 1));
     final response = await http.get(
       Uri.parse(
         RequestUtils.getFullURL('/movie/popular'),

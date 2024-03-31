@@ -25,7 +25,7 @@ class MovieCarouselWidget extends StatelessWidget {
       child: CarouselSlider.builder(
         itemCount: itemCount,
         options: CarouselOptions(
-          height: mainCarousel ? size.height * 0.50 : size.height * 0.40,
+          height: mainCarousel ? size.height * 0.47 : size.height * 0.37,
           autoPlay: autoPlay,
           enlargeCenterPage: enlargeCenterPage,
           viewportFraction: 0.55,
@@ -34,10 +34,7 @@ class MovieCarouselWidget extends StatelessWidget {
           enlargeFactor: 0.25,
         ),
         itemBuilder: (context, itemIndex, pageViewIndex) {
-          return ClipRRect(
-            borderRadius: BorderRadius.circular(10),
-            child: itemBuilder(context, itemIndex, pageViewIndex),
-          );
+          return itemBuilder(context, itemIndex, pageViewIndex);
         },
       ),
     );

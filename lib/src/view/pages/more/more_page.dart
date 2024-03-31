@@ -31,7 +31,7 @@ class _MorePageState extends State<MorePage> {
   void initState() {
     super.initState();
     scrollController = ScrollController();
-    fullList = widget.moviesList;
+    fullList = List.from(widget.moviesList);
     page = 1;
     fullListLength = fullList.length;
     scrollController.addListener(() {
@@ -88,7 +88,9 @@ class _MorePageState extends State<MorePage> {
           widget.title,
           style: const TextStyle(fontWeight: FontWeight.bold),
         ),
+        elevation: 0,
         backgroundColor: Colors.transparent,
+        surfaceTintColor: Colors.transparent,
       ),
       body: GridView.builder(
         itemCount: fullList.length + (isLoadingPage ? 1 : 0),

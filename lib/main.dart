@@ -17,11 +17,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Dice App',
       theme: ThemeData(
-        useMaterial3: true,
-        colorSchemeSeed: Colors.white,
-        brightness: Brightness.dark,
-        fontFamily: 'Poppins',
-      ),
+          useMaterial3: true,
+          colorSchemeSeed: Colors.white,
+          brightness: Brightness.dark,
+          fontFamily: 'Poppins',
+          inputDecorationTheme: const InputDecorationTheme(
+            floatingLabelStyle: TextStyle(
+              color: Colors.white70,
+            ),
+          )),
       home: const HomePage(),
     );
   }

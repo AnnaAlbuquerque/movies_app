@@ -3,6 +3,8 @@ import 'package:movies_app/src/controller/movies_controller.dart';
 import 'package:movies_app/src/model/movie_model.dart';
 import 'package:movies_app/src/view/pages/home/widgets/movie_carousel_widget.dart';
 import 'package:movies_app/src/view/pages/home/widgets/title_row_widget.dart';
+import 'package:movies_app/src/view/pages/search/search_page.dart';
+import 'package:movies_app/src/view/widgets/loading_poster_widget.dart';
 import 'package:movies_app/src/view/widgets/movie_item_widget.dart';
 
 class HomePage extends StatefulWidget {
@@ -29,6 +31,32 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColorDark,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        surfaceTintColor: Colors.transparent,
+        title: const Text(
+          "Moovie",
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        actions: [
+          IconButton(
+            icon: const Icon(
+              Icons.search,
+              size: 28,
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const SearchPage(),
+                ),
+              );
+            },
+          ),
+        ],
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -46,10 +74,15 @@ class _HomePageState extends State<HomePage> {
                       final data = snapshot.data!;
                       return Column(
                         children: [
-                          TitleRowBuild(
-                            title: "Popular",
-                            showMoreButton: false,
-                            movieList: data,
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              TitleRowBuild(
+                                title: "Popular",
+                                showMoreButton: false,
+                                movieList: data,
+                              ),
+                            ],
                           ),
                           MovieCarouselWidget(
                             itemCount: data.length,
@@ -66,8 +99,12 @@ class _HomePageState extends State<HomePage> {
                         ],
                       );
                     } else {
-                      //TODO: Add better loading
-                      return const CircularProgressIndicator();
+                      return MovieCarouselWidget(
+                        itemCount: 3,
+                        itemBuilder: (context, itemIndex, pageViewIndex) {
+                          return const LoadingPosterWidget();
+                        },
+                      );
                     }
                   },
                 ),
@@ -97,8 +134,12 @@ class _HomePageState extends State<HomePage> {
                         ],
                       );
                     } else {
-                      //TODO: Add better loading
-                      return const CircularProgressIndicator();
+                      return MovieCarouselWidget(
+                        itemCount: 3,
+                        itemBuilder: (context, itemIndex, pageViewIndex) {
+                          return const LoadingPosterWidget();
+                        },
+                      );
                     }
                   },
                 ),
@@ -128,8 +169,12 @@ class _HomePageState extends State<HomePage> {
                         ],
                       );
                     } else {
-                      //TODO: Add better loading
-                      return const CircularProgressIndicator();
+                      return MovieCarouselWidget(
+                        itemCount: 3,
+                        itemBuilder: (context, itemIndex, pageViewIndex) {
+                          return const LoadingPosterWidget();
+                        },
+                      );
                     }
                   },
                 ),
