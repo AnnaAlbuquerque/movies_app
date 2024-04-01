@@ -2,19 +2,44 @@
 
 Aplicativo com listagem de filmes utilizando a API [TMDB](https://developer.themoviedb.org/docs/image-basics).
 
-contempla:
+Contempla:
+
+- Tela home
+- Tela de Mais
+- Tela de detalhamento
+- Tela de Pesquisa
+
+<img src="./assets/read_me/full_app.gif" height = "500">
+
+## Detalhamento das telas
+
+### Home
+Contempla a listagem de filmes populares no momento, que estão para estreiar e os com maiores notas.
+
+<img src="./assets/read_me/home.gif" height = "500">
+
+### Mais
+Tela em que é possível verificar mais filmes das listagens que se encontram na home.
+
+<img src="./assets/read_me/more.gif" height = "500">
+
+### Detalhamento
+Detalha informações extras do filme. Como idioma de origem, data delançamento, nota e posição geral do filme.
+
+<img src="./assets/read_me/details.png" height = "500">
+
+### Pesquisa
+Tela em que é possiível realizar uma pesquisa de um filme através no seu título.
+
+<img src="./assets/read_me/search.gif" height = "500">
 
 
+## Overview do Projeto
 
-## Getting Started
+Nessa seção irei explicar um pouco sobre o projeto, relatando escolhas feitas, como estruturação, arquitetura, escolha de pacotes, etc. Assim como possível mudanças nas minhas escolhas, se houvesse um tempo maior para o desenvolvimento.
 
-This project is a starting point for a Flutter application.
+É importante enfatizar que esse projeto foi realizado em aproximadamente 3 dias, então minhas escolhas foram levando, principalmente, esse ponto em consideração.
 
-A few resources to get you started if this is your first Flutter project:
+### Arquitetura
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Além do ponto principal ()
