@@ -11,7 +11,7 @@ Contempla:
 
 <img src="./assets/read_me/full_app.gif" height = "500">
 
-## Detalhamento das telas
+## Descrição das telas
 
 ### Home
 Contempla a listagem de filmes populares no momento, que estão para estreiar e os com maiores notas.
@@ -29,7 +29,7 @@ Detalha informações extras do filme. Como idioma de origem, data de lançament
 <img src="./assets/read_me/details.png" height = "500">
 
 ### Pesquisa
-Tela em que é possiível realizar uma pesquisa de um filme através no seu título.
+Tela em que é possiível realizar uma pesquisa de um filme através do seu título.
 
 <img src="./assets/read_me/search.gif" height = "500">
 
@@ -51,23 +51,23 @@ Por isso, optei pela arquitetura MVC, que acredito ser uma boa escolha para proj
 Os pacotes utilizados na construção desse projeto foram:
 
 - [HTTP](https://pub.dev/packages/http) : Pacote utilizado para realizar as request para a API do TMDB.
-- [Carousel slider](https://pub.dev/packages/carousel_slider) : utilizado para facilitar a criação dos carroseis apresentados na tela da home.
-- [Shimmer](https://pub.dev/packages/shimmer) : utilizado para facilitar a criação dos shimmers utilizados nos loadings das telas de home e mais.
-- [Get It](https://pub.dev/packages/get_it) : utiliazdo para injeção de dependência e acesso de objetos da aplicação
-- [Build Runner](https://pub.dev/packages/build_runner) : cosntrução das classes de mocks geradas para os testes unitários
-- [Mockito](https://pub.dev/packages/mockito/example) : criação dos mocks utilizados nos testes unitários
+- [Carousel slider](https://pub.dev/packages/carousel_slider) : Utilizado para facilitar a criação dos carrosséis apresentados na tela da home.
+- [Shimmer](https://pub.dev/packages/shimmer) : Utilizado para facilitar a criação dos shimmers utilizados nos loadings das telas de home e mais.
+- [Get It](https://pub.dev/packages/get_it) : Utilizado para injeção de dependência e acesso de objetos da aplicação
+- [Build Runner](https://pub.dev/packages/build_runner) : Cosntrução das classes de mocks geradas para os testes unitários
+- [Mockito](https://pub.dev/packages/mockito/example) : Criação dos mocks utilizados nos testes unitários
 
 Todos os packages foram escolhidos levando em consideração seus pontos e popularidades no pub.dev.
 
 ### Visual/Estilização
 
-As inpirações utilizadas para o design da aplicação foram
+As inspirações utilizadas para o design da aplicação foram
 
 - Netflix
 - Visual disponibilizado pelo [Mohammad Moshtaghi](https://dribbble.com/shots/22159209-Movie-streaming-app) no Dribble
 - Pesquisa de ["Movie App"](https://dribbble.com/tags/movie-app) no Dribble
 
-<u>Importante:</u> O visual do app não foi feita para seguir 100% dos items mencionados acima, eles foram utilizados apenas como inspiração.
+<u>Importante:</u> O visual do app não foi feito para seguir 100% dos items mencionados acima, eles foram utilizados apenas como inspiração.
 
 
 ### O que poderia ser melhorado/ O que eu teria feito diferente
@@ -77,7 +77,7 @@ As inpirações utilizadas para o design da aplicação foram
 Atualmente no app, existe dois bugs dos quais estou ciente.
 
 1. Teclado na tela de pesquisa: Em alguns casos ao voltar da tela de detalhamento para a tela de pesquisa, o teclado é aberto sem o Textfield estar selecionado.
-2. Requisição de páginação na tela de mais: Digamos que estamos na tela de mais referente à listagem "up coming" se no infinite scroll for feita uma requisição à API da página 2 dessa listagem, e houver um erro, da próxima vez que uma requisição for feita através do infinite scroll, irá ser chamada a página seguinte, nesse caso a 3, sendo assim, a listagem acaba pulando a página em que houve o erro e os filmes continos nela não serão listados.
+2. Requisição de páginação na tela de mais: Digamos que estamos na tela de mais referente à listagem "up coming", se no infinite scroll for feita uma requisição à API da página 2 dessa listagem, e houver um erro, da próxima vez que uma requisição for feita através do infinite scroll, irá ser chamada a página seguinte, nesse caso a 3, sendo assim, acaba pulando a página em que houve o erro e os filmes continos nela não serão listados.
 
 #### Funcionalidades que não foram implementadas
 
@@ -93,17 +93,17 @@ Atualmente o app realiza a gerência de estado com as funções bases do Flutter
 
 #### Testes 
 
-Na atual versão do app, há a presença de testes unitários no controller apenas. então com toda certeza, uma melhoria seria a adição de mais testes, tanto das classes e métodos criados como dos widgets.
+Na atual versão do app, há a presença de testes unitários no controller apenas. Então com toda certeza, uma melhoria seria a adição de mais testes, tanto das classes e métodos criados como dos widgets.
 
 Além disso seria importante realizar testes de responsividade, para a melhor adequeação do design em diferentes tamanhos de telas.
 
 #### Tratativa de Erro
 
-Erros referentes as requisições realizadas na home estão sendo tratados de forma genérica, o ideal seria melhorar essas tratativas. Além disso adicionar tratativas nas demais telas/requisições do projeto.
+Erros referentes as requisições realizadas na home estão sendo tratados de forma genérica, o ideal seria melhorar essas tratativas. Além disso, adicionar tratativas nas demais telas/requisições do projeto.
 
 #### Arquitetura
 
-Com a quantidade de endpoints existem no TMDB, existe muitas funcionalidades que poderiam ser adicionados ao projeto. Dessa maneira se o fator tempo não fosse o principal ponto levado em consideração nesse projeto, o mudaria a minha escolha de arquitetura para Clean Arch, acredito que com ela, o projeto, ficaria mais organizado e mais fácil de manter manutenção.
+Com a quantidade de endpoints existem no TMDB, existe muitas funcionalidades que poderiam ser adicionados ao projeto. Dessa maneira se o fator tempo não fosse o principal ponto levado em consideração nesse projeto, eu mudaria a minha escolha de arquitetura para Clean Arch. Acredito que com ela, o projeto, ficaria mais organizado e mais fácil de dar manutenção.
 
 
 
