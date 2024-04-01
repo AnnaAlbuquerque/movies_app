@@ -33,6 +33,20 @@ Tela em que é possiível realizar uma pesquisa de um filme através do seu tít
 
 <img src="./assets/read_me/search.gif" height = "500">
 
+## Rodando o Projeto/Testes
+
+Levando em consideração que a máquina já esteja configurada para o Flutter.
+Para rodar o projeto, basta colocar para Debugar ou Rodar na sua IDE de preferência, ou rodar o comando do flutter no terminal, estando na pasta base do projeto e com algum device ativo.
+
+> flutter run
+
+Já para  os testes, bastar rodar o comando flutter, na pasta base do projeto.
+
+> flutter test
+
+Opcionalmente, caso queira obter o coverage, pode rodar:
+
+> flutter test --coverage
 
 ## Overview do Projeto
 
